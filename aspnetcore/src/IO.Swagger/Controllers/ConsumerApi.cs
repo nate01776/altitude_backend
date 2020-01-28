@@ -1,7 +1,7 @@
 /*
  * Doomsd-API
  *
- * This is a simple API
+ * This is service is designed to return current information and historical data related to the Doomsday Clock maintained by the Bulletin of Atomic Scientists. There is a lightweight front end application designed to emmulate the motif of the clock as described here - https://www.theatlantic.com/entertainment/archive/2015/11/doomsday-clock-michael-bierut-design/412936/
  *
  * OpenAPI spec version: 1.0.0
  * Contact: nate01776@gmail.com
@@ -50,7 +50,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(500);
             string exampleJson = null;
-            exampleJson = "[ {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"name\" : \"Widget Adapter\",\n  \"id\" : 3\n}, {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"name\" : \"Widget Adapter\",\n  \"id\" : 3\n} ]";
+            exampleJson = "[ {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"ref\" : \"ref\",\n  \"timeToMidnight\" : \"100 seconds\",\n  \"shortMessage\" : \"It is 100 seconds to midnight.\",\n  \"id\" : 3,\n  \"longMessage\" : \"longMessage\"\n}, {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"ref\" : \"ref\",\n  \"timeToMidnight\" : \"100 seconds\",\n  \"shortMessage\" : \"It is 100 seconds to midnight.\",\n  \"id\" : 3,\n  \"longMessage\" : \"longMessage\"\n} ]";
             
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<List<StatusModel>>(exampleJson)
@@ -82,7 +82,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(500);
             string exampleJson = null;
-            exampleJson = "[ {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"name\" : \"Widget Adapter\",\n  \"id\" : 3\n}, {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"name\" : \"Widget Adapter\",\n  \"id\" : 3\n} ]";
+            exampleJson = "[ {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"ref\" : \"ref\",\n  \"timeToMidnight\" : \"100 seconds\",\n  \"shortMessage\" : \"It is 100 seconds to midnight.\",\n  \"id\" : 3,\n  \"longMessage\" : \"longMessage\"\n}, {\n  \"date\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"ref\" : \"ref\",\n  \"timeToMidnight\" : \"100 seconds\",\n  \"shortMessage\" : \"It is 100 seconds to midnight.\",\n  \"id\" : 3,\n  \"longMessage\" : \"longMessage\"\n} ]";
             
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<List<StatusModel>>(exampleJson)

@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "title" : "Doomsd-API",
-    "description" : "This is a simple API",
+    "description" : "This is service is designed to return current information and historical data related to the Doomsday Clock maintained by the Bulletin of Atomic Scientists. There is a lightweight front end application designed to emmulate the motif of the clock as described here - https://www.theatlantic.com/entertainment/archive/2015/11/doomsday-clock-michael-bierut-design/412936/",
     "contact" : {
       "email" : "nate01776@gmail.com"
     },
@@ -108,17 +108,35 @@
           },
           "date" : {
             "type" : "string",
+            "description" : "Date a TTM change was released",
             "format" : "date-time"
           },
-          "name" : {
+          "timeToMidnight" : {
             "type" : "string",
-            "example" : "Widget Adapter"
+            "description" : "Time to midnight",
+            "example" : "100 seconds"
+          },
+          "shortMessage" : {
+            "type" : "string",
+            "description" : "Short message including the clocks TTM,",
+            "example" : "It is 100 seconds to midnight."
+          },
+          "ref" : {
+            "type" : "string",
+            "description" : "URL reference to the Bulletin of Atomic Scientist's post regarding this status."
+          },
+          "longMessage" : {
+            "type" : "string",
+            "description" : "Descriptive message about the TTM status."
           }
         },
         "example" : {
           "date" : "2000-01-23T04:56:07.000+00:00",
-          "name" : "Widget Adapter",
-          "id" : 3
+          "ref" : "ref",
+          "timeToMidnight" : "100 seconds",
+          "shortMessage" : "It is 100 seconds to midnight.",
+          "id" : 3,
+          "longMessage" : "longMessage"
         }
       }
     }

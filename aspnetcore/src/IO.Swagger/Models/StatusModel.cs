@@ -1,7 +1,7 @@
 /*
  * Doomsd-API
  *
- * This is a simple API
+ * This is service is designed to return current information and historical data related to the Doomsday Clock maintained by the Bulletin of Atomic Scientists. There is a lightweight front end application designed to emmulate the motif of the clock as described here - https://www.theatlantic.com/entertainment/archive/2015/11/doomsday-clock-michael-bierut-design/412936/
  *
  * OpenAPI spec version: 1.0.0
  * Contact: nate01776@gmail.com
@@ -35,17 +35,43 @@ namespace IO.Swagger.Models
         public int? Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Date
+        /// Date a TTM change was released
         /// </summary>
+        /// <value>Date a TTM change was released</value>
         [Required]
         [DataMember(Name="date")]
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Time to midnight
         /// </summary>
-        [DataMember(Name="name")]
-        public string Name { get; set; }
+        /// <value>Time to midnight</value>
+        [Required]
+        [DataMember(Name="timeToMidnight")]
+        public string TimeToMidnight { get; set; }
+
+        /// <summary>
+        /// Short message including the clocks TTM,
+        /// </summary>
+        /// <value>Short message including the clocks TTM,</value>
+        [Required]
+        [DataMember(Name="shortMessage")]
+        public string ShortMessage { get; set; }
+
+        /// <summary>
+        /// URL reference to the Bulletin of Atomic Scientist&#x27;s post regarding this status.
+        /// </summary>
+        /// <value>URL reference to the Bulletin of Atomic Scientist&#x27;s post regarding this status.</value>
+        [DataMember(Name="ref")]
+        public string Ref { get; set; }
+
+        /// <summary>
+        /// Descriptive message about the TTM status.
+        /// </summary>
+        /// <value>Descriptive message about the TTM status.</value>
+        [Required]
+        [DataMember(Name="longMessage")]
+        public string LongMessage { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,7 +83,10 @@ namespace IO.Swagger.Models
             sb.Append("class StatusModel {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  TimeToMidnight: ").Append(TimeToMidnight).Append("\n");
+            sb.Append("  ShortMessage: ").Append(ShortMessage).Append("\n");
+            sb.Append("  Ref: ").Append(Ref).Append("\n");
+            sb.Append("  LongMessage: ").Append(LongMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,9 +134,24 @@ namespace IO.Swagger.Models
                     Date.Equals(other.Date)
                 ) && 
                 (
-                    Name == other.Name ||
-                    Name != null &&
-                    Name.Equals(other.Name)
+                    TimeToMidnight == other.TimeToMidnight ||
+                    TimeToMidnight != null &&
+                    TimeToMidnight.Equals(other.TimeToMidnight)
+                ) && 
+                (
+                    ShortMessage == other.ShortMessage ||
+                    ShortMessage != null &&
+                    ShortMessage.Equals(other.ShortMessage)
+                ) && 
+                (
+                    Ref == other.Ref ||
+                    Ref != null &&
+                    Ref.Equals(other.Ref)
+                ) && 
+                (
+                    LongMessage == other.LongMessage ||
+                    LongMessage != null &&
+                    LongMessage.Equals(other.LongMessage)
                 );
         }
 
@@ -125,8 +169,14 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + Id.GetHashCode();
                     if (Date != null)
                     hashCode = hashCode * 59 + Date.GetHashCode();
-                    if (Name != null)
-                    hashCode = hashCode * 59 + Name.GetHashCode();
+                    if (TimeToMidnight != null)
+                    hashCode = hashCode * 59 + TimeToMidnight.GetHashCode();
+                    if (ShortMessage != null)
+                    hashCode = hashCode * 59 + ShortMessage.GetHashCode();
+                    if (Ref != null)
+                    hashCode = hashCode * 59 + Ref.GetHashCode();
+                    if (LongMessage != null)
+                    hashCode = hashCode * 59 + LongMessage.GetHashCode();
                 return hashCode;
             }
         }
