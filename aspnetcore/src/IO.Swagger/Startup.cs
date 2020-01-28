@@ -1,5 +1,5 @@
 /*
- * Doomsd-API
+ * DoomsdAPI
  *
  * This is service is designed to return current information and historical data related to the Doomsday Clock maintained by the Bulletin of Atomic Scientists. There is a lightweight front end application designed to emmulate the motif of the clock as described here - https://www.theatlantic.com/entertainment/archive/2015/11/doomsday-clock-michael-bierut-design/412936/
  *
@@ -70,8 +70,8 @@ namespace IO.Swagger
                     c.SwaggerDoc("1.0.0", new Info
                     {
                         Version = "1.0.0",
-                        Title = "Doomsd-API",
-                        Description = "Doomsd-API (ASP.NET Core 2.0)",
+                        Title = "DoomsdAPI",
+                        Description = "DoomsdAPI (ASP.NET Core 2.0)",
                         Contact = new Contact()
                         {
                            Name = "Swagger Codegen Contributors",
@@ -106,10 +106,10 @@ namespace IO.Swagger
                 .UseSwaggerUI(c =>
                 {
                     //TODO: Either use the SwaggerGen generated Swagger contract (generated from C# classes)
-                    c.SwaggerEndpoint("/swagger/1.0.0/swagger.json", "Doomsd-API");
+                    c.SwaggerEndpoint("/swagger/1.0.0/swagger.json", "DoomsdAPI");
 
                     //TODO: Or alternatively use the original Swagger contract that's included in the static files
-                    // c.SwaggerEndpoint("/swagger-original.json", "Doomsd-API Original");
+                    // c.SwaggerEndpoint("/swagger-original.json", "DoomsdAPI Original");
                 });
 
             if (env.IsDevelopment())

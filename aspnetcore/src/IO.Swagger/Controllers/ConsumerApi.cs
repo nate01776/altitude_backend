@@ -1,5 +1,5 @@
 /*
- * Doomsd-API
+ * DoomsdAPI
  *
  * This is service is designed to return current information and historical data related to the Doomsday Clock maintained by the Bulletin of Atomic Scientists. There is a lightweight front end application designed to emmulate the motif of the clock as described here - https://www.theatlantic.com/entertainment/archive/2015/11/doomsday-clock-michael-bierut-design/412936/
  *
