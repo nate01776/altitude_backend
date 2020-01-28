@@ -1,0 +1,126 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Doomsd-API",
+    "description" : "This is a simple API",
+    "contact" : {
+      "email" : "nate01776@gmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "/"
+  } ],
+  "tags" : [ {
+    "name" : "Consumer",
+    "description" : "Operations available to API consumers"
+  }, {
+    "name" : "Provider",
+    "description" : "Operations specific to API provider"
+  } ],
+  "paths" : {
+    "/status" : {
+      "get" : {
+        "tags" : [ "Consumer", "Provider" ],
+        "summary" : "Current status of clock.",
+        "description" : "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+        "operationId" : "clockStatus",
+        "parameters" : [ {
+          "name" : "searchString",
+          "in" : "query",
+          "description" : "pass an optional search string for looking up inventory",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Current status of clock.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/StatusModel"
+                  },
+                  "x-content-type" : "application/json"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Bad Request"
+          },
+          "500" : {
+            "description" : "Server Error"
+          }
+        }
+      }
+    },
+    "/history" : {
+      "get" : {
+        "tags" : [ "Consumer", "Provider" ],
+        "summary" : "History of clocks status",
+        "description" : "Returns a history of the clock's time to midnight with optional descriptions",
+        "operationId" : "clockHistory",
+        "responses" : {
+          "200" : {
+            "description" : "Current status of clock.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/StatusModel"
+                  },
+                  "x-content-type" : "application/json"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Bad Request"
+          },
+          "500" : {
+            "description" : "Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "StatusModel" : {
+        "required" : [ "date", "id", "longMessage", "shortMessage", "timeToMidnight" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "description" : "Internal reference for a clock status.",
+            "example" : 3
+          },
+          "date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "name" : {
+            "type" : "string",
+            "example" : "Widget Adapter"
+          }
+        },
+        "example" : {
+          "date" : "2000-01-23T04:56:07.000+00:00",
+          "name" : "Widget Adapter",
+          "id" : 3
+        }
+      }
+    }
+  }
+}
