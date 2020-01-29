@@ -23,7 +23,7 @@
     "description" : "Operations specific to API provider"
   } ],
   "paths" : {
-    "/status" : {
+    "/time" : {
       "get" : {
         "tags" : [ "Consumer", "Provider" ],
         "summary" : "Current status of clock.",
@@ -70,9 +70,74 @@
         "summary" : "History of clocks status",
         "description" : "Returns a history of the clock's time to midnight with optional descriptions",
         "operationId" : "clockHistory",
+        "parameters" : [ {
+          "name" : "startDate",
+          "in" : "query",
+          "description" : "Hyphen seperated start date from which status objects are returned.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "05-05-1947"
+          }
+        }, {
+          "name" : "endDate",
+          "in" : "query",
+          "description" : "Hyphen seperated end date of history window, if not included default will be the current date",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "01-28-2020"
+          }
+        } ],
         "responses" : {
           "200" : {
-            "description" : "Current status of clock.",
+            "description" : "Array of status objects describing the various changes the clock has gone through, scoped based on submitted parameters.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/StatusModel"
+                  },
+                  "x-content-type" : "application/json"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Bad Request"
+          },
+          "500" : {
+            "description" : "Server Error"
+          }
+        }
+      }
+    },
+    "/data/{type}" : {
+      "get" : {
+        "tags" : [ "Consumer", "Provider" ],
+        "summary" : "History of clocks status",
+        "description" : "Returns a",
+        "operationId" : "dataQuery",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "description" : "Defines the type of influence data, provider directly from the Bulletin of Atomic Scientist's sources.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "enum"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Array of status objects describing the various changes the clock has gone through, scoped based on submitted parameters.",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -123,7 +188,8 @@
           },
           "ref" : {
             "type" : "string",
-            "description" : "URL reference to the Bulletin of Atomic Scientist's post regarding this status."
+            "description" : "URL reference to the Bulletin of Atomic Scientist's post regarding this status.",
+            "example" : "https://thebulletin.org/doomsday-clock/current-time/"
           },
           "longMessage" : {
             "type" : "string",
@@ -132,7 +198,7 @@
         },
         "example" : {
           "date" : "2000-01-23T04:56:07.000+00:00",
-          "ref" : "ref",
+          "ref" : "https://thebulletin.org/doomsday-clock/current-time/",
           "timeToMidnight" : "100 seconds",
           "shortMessage" : "It is 100 seconds to midnight.",
           "id" : 3,

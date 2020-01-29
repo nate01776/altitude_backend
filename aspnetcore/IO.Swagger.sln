@@ -2,7 +2,7 @@
 # Visual Studio 15
 VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IO.Swagger", "src\IO.Swagger\IO.Swagger.csproj", "{81E18BC3-37BA-4D5C-8E2D-1A43329AC4A3}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IO.Swagger", "src\IO.Swagger\IO.Swagger.csproj", "{CAAF72CA-68DA-4428-8A97-11B4FCF97E82}"
 EndProject
 Global
         GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
                 Release|Any CPU = Release|Any CPU
         EndGlobalSection
         GlobalSection(ProjectConfigurationPlatforms) = postSolution
-                {81E18BC3-37BA-4D5C-8E2D-1A43329AC4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-                {81E18BC3-37BA-4D5C-8E2D-1A43329AC4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-                {81E18BC3-37BA-4D5C-8E2D-1A43329AC4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-                {81E18BC3-37BA-4D5C-8E2D-1A43329AC4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+                {CAAF72CA-68DA-4428-8A97-11B4FCF97E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+                {CAAF72CA-68DA-4428-8A97-11B4FCF97E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+                {CAAF72CA-68DA-4428-8A97-11B4FCF97E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+                {CAAF72CA-68DA-4428-8A97-11B4FCF97E82}.Release|Any CPU.Build.0 = Release|Any CPU
         EndGlobalSection
         GlobalSection(SolutionProperties) = preSolution
                 HideSolutionNode = FALSE
